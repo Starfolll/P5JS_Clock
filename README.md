@@ -1,2 +1,2 @@
 # P5JS_Clock
-JS project. Show time 
+JS project. Show time month and day
