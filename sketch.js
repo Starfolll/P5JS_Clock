@@ -3,7 +3,7 @@ function setup() {
 }
 
 function draw(){
-  background(0);
+  clear();
   noFill();
   strokeJoin(ROUND);
   translate(width/2,height/2);
@@ -11,6 +11,26 @@ function draw(){
   ClockNums(0,0,145,180,4);
   ClockEllipse(0,0,500,4);
   ClockLine(0,0,160,4);
+
+  NumberTime();
+}
+
+function NumberTime(){
+  const date = new Date(Date.now());
+  const time = date.toLocaleTimeString();
+  const day = date.toLocaleDateString();
+  push();
+  textSize(20);
+  textFont('monospace');
+  fill(0,115,105);
+  text(time.split(":")[0], -220, -200);
+  fill(0,140,14);
+  text(time.split(":")[1], -187, -200);
+  fill(2,166,118);
+  text(time.split(":")[2], -154, -200);
+  fill(100,100,100);
+  text(day, -220, -220);
+  pop();
 }
 
 function ClockNums(p_x,p_y,tab1,tab2,stroksize,shownum){
@@ -23,7 +43,7 @@ function ClockNums(p_x,p_y,tab1,tab2,stroksize,shownum){
     rotate(-90);
     rotate(i * 6);
     if (i % 5 === 0){
-      line (tab1,0,tab2,0);
+      line(tab1,0,tab2,0);
       if (shownum){
         fill(255,255,255);
         if (i === 5 || i === 0){
